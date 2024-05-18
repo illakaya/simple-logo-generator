@@ -5,6 +5,7 @@ const Triangle = require('./lib/shapes/triangle');
 const Circle = require('./lib/shapes/circle');
 const Square = require('./lib/shapes/square');
 const textCheck = require('./lib/text/textCheck');
+const colourCheck = require('./lib/colour/colourCheck');
 
 // Create an array of questions for user input
 const questions = [
@@ -15,14 +16,17 @@ const questions = [
         message: 'Enter up to three characters for the logo text:',
         validate: function (input) {
             // Use a ternary operator to inform users that the text must have a max length of 3
-            return input.length <= 3 ? true : 'Text must be up to three characters.';
+            return input.length <= 3 ? true : 'Text must be up to three characters long.';
         },
     },
     // object to prompt the user for the colour input
     {
         type: 'input',
         name: 'colour',
-        message: 'Enter a colour keyword or hexadecimal number for the text:',
+        message: 'Enter a colour keyword (with no spacing) or hexadecimal number for the text:',
+        validate: function (input) {
+            return colourCheck(input) ? true : 'Enter a valid CSS colour name or hexdecimal input starting with #.'
+        }
     },
     // object to prompt the user to choose a shape
     {
@@ -35,7 +39,10 @@ const questions = [
     {
         type: 'input',
         name: 'shapeColour',
-        message: 'Enter a colour keyword or hexadecimal number for the shape:',
+        message: 'Enter a colour keyword (with no spacing) or hexadecimal number for the shape:',
+        validate: function (input) {
+            return colourCheck(input) ? true : 'Enter a valid CSS colour name or hexdecimal input starting with #.'
+        }
     },
     // object to prompt the user for a name for the svg file
     {
@@ -53,6 +60,7 @@ const questions = [
     },
 ]
 
+// Use inquirer pkg to ask user for input
 inquirer
     .prompt(questions)
     .then((res) => {
@@ -77,12 +85,12 @@ inquirer
         // set the colour of the shape by calling the Shapes constructor's method
         logoShape.setColour(res.shapeColour);
         // render the shape, add the xmlns to declare that the content in the svg element conforms to SVG
-        const svgContent = `
-        <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-            ${logoShape.render()}
-            <text x="150" y="118" text-anchor="middle" fill="${res.colour}" font-size="36" font-weight="bold">${textCheck(res.text)}</text>
-        </svg>`;
-
+        const svgContent = 
+`<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    ${logoShape.render()}
+    <text x="150" y="118" text-anchor="middle" fill="${res.colour}" font-size="36" font-weight="bold">${textCheck(res.text)}</text>
+</svg>`;
+        // Save the file in the output directory
         fs.writeFile(`./output/${res.file}.svg`, svgContent, (err) => {
             err ? console.error(err) : console.log(`Generated ${res.file}.svg`);
         });
