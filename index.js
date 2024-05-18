@@ -85,6 +85,7 @@ inquirer
         // set the colour of the shape by calling the Shapes constructor's method
         logoShape.setColour(res.shapeColour);
         // render the shape, add the xmlns to declare that the content in the svg element conforms to SVG
+        // centered the text
         const svgContent = 
 `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
     ${logoShape.render()}
