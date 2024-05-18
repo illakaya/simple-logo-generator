@@ -88,7 +88,7 @@ inquirer
         const svgContent = 
 `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
     ${logoShape.render()}
-    <text x="150" y="118" text-anchor="middle" fill="${res.colour}" font-size="36" font-weight="bold">${textCheck(res.text)}</text>
+    <text x="150" y="100" text-anchor="middle" fill="${res.colour}" font-size="36" font-weight="bold" dominant-baseline="middle">${textCheck(res.text)}</text>
 </svg>`;
         // Save the file in the output directory
         fs.writeFile(`./output/${res.file}.svg`, svgContent, (err) => {
