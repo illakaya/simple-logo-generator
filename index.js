@@ -69,10 +69,12 @@ inquirer
         for (const choice of userChoice) {
             console.log(choice);
         }
+        let yAxis = '50%';
         // Create logo SVG code using switch cases that invoke object constructors
         let logoShape;
         switch (res.shape) {
             case 'Triangle':
+                yAxis = '66%';
                 logoShape = new Triangle();
                 break;
             case 'Circle':
@@ -89,7 +91,7 @@ inquirer
         const svgContent = 
 `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
     ${logoShape.render()}
-    <text x="150" y="100" text-anchor="middle" fill="${res.colour}" font-size="72" font-weight="bold" dominant-baseline="middle">${textCheck(res.text)}</text>
+    <text x="150" y="${yAxis}" text-anchor="middle" fill="${res.colour}" font-size="72" font-weight="bold" dominant-baseline="middle">${textCheck(res.text)}</text>
 </svg>`;
         // Save the file in the output directory
         fs.writeFile(`./output/${res.file}.svg`, svgContent, (err) => {
