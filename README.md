@@ -9,8 +9,8 @@ This project was constructed in order to build a Node.js command-line applicatio
 - Jest and testing
 
 The image below shows the application in the terminal.
-![image](https://github.com/illakaya/simple-logo-generator/assets/161125561/7540706b-f118-41f3-a7ea-a9ab4766b3f5)
-Thie image below shows the output.
+![image](https://github.com/illakaya/simple-logo-generator/assets/161125561/7540706b-f118-41f3-a7ea-a9ab4766b3f5)  
+The image below shows the output.
 ![image](./output/logo.svg)
 
 
