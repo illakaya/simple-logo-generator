@@ -44,7 +44,8 @@ const questions = [
             return colourCheck(input) ? true : 'Enter a valid CSS colour name or hexdecimal input starting with #.'
         }
     },
-    // object to prompt the user for a name for the svg file
+    // object to prompt the user for a name for the svg file, Acceptance criteria says the file name should be logo
+    // But this allows the user to create multiple logos without overwriting the previous file
     {
         type: 'input',
         name: 'file',
@@ -95,6 +96,7 @@ inquirer
 </svg>`;
         // Save the file in the output directory
         fs.writeFile(`./output/${res.file}.svg`, svgContent, (err) => {
+            // Inform user if they are successful in making the svg or not
             err ? console.error(err) : console.log(`Generated ${res.file}.svg`);
         });
     });
