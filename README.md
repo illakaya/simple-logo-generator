@@ -10,7 +10,7 @@ This project was constructed in order to build a Node.js command-line applicatio
 
 The image below shows the application in the terminal.
 ![image](https://github.com/illakaya/simple-logo-generator/assets/161125561/806280bf-c579-4309-a18e-f92d1a7559cc)
-![image](./output/test.svg)
+![image](./output/logo.svg)
 
 
 ## Installation
