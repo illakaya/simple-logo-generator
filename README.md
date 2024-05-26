@@ -26,7 +26,7 @@ Run `node index.js` in the terminal to start the application.
 
 Thank you to:
 
-- The Coding Bootcamp at the University of Sydney for providing a project for students to develop their understanding of web accessibility
+- The Coding Bootcamp at the University of Sydney for providing a project for students to develop their understanding of Node.js
 - Instructor Frank Fu and teacher assistant Sean Butcher for providing the foundational knowledge required to attempt the project
 - [W3C Wiki](https://www.w3.org/wiki/CSS/Properties/color/keywords) for list of CSS colour names
 
