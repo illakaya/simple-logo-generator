@@ -20,7 +20,7 @@ Run `npm i` in the terminal to install necessary packages to use the application
 
 ## Usage
 
-Run `node index.js` in the terminal to start the application.
+Run `node index.js` in the terminal to start the application.  
 Here is a [video](https://drive.google.com/file/d/1kb-HFcykugdW6l2q4AvlGqRd6kOO3ucf/view?usp=drive_link) showing a walkthrough of the application.
 
 ## Credits
